@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { clearTokens, getAccessToken, getRefreshToken, setTokens } from './tokenStore';
 
-const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+// const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+const baseURL = import.meta.env.VITE_API_URL || 'https://sales-analytics-backend-lgeh.onrender.com/api/v1';
 
 export const api = axios.create({
   baseURL,
