@@ -1,0 +1,12 @@
+[
+  {"id":"C-1001","fullName":"علی رضایی","email":"ali.rezaei@example.local","phone":"09121234501","city":"تهران","segment":"VIP","createdAt":"1405/04/03"},
+  {"id":"C-1002","fullName":"مریم احمدی","email":"maryam.ahmadi@example.local","phone":"09121234502","city":"مشهد","segment":"High Value","createdAt":"1405/04/08"},
+  {"id":"C-1003","fullName":"سینا کریمی","email":"sina.karimi@example.local","phone":"09121234503","city":"اصفهان","segment":"Regular","createdAt":"1405/04/12"},
+  {"id":"C-1004","fullName":"زهرا یوسفی","email":"zahra.yousefi@example.local","phone":"09121234504","city":"شیراز","segment":"New","createdAt":"1405/05/01"},
+  {"id":"C-1005","fullName":"امیر محمدی","email":"amir.mohammadi@example.local","phone":"09121234505","city":"تبریز","segment":"High Value","createdAt":"1405/03/27"},
+  {"id":"C-1006","fullName":"سارا اکبری","email":"sara.akbari@example.local","phone":"09121234506","city":"کرج","segment":"At Risk","createdAt":"1405/02/16"},
+  {"id":"C-1007","fullName":"رضا نادری","email":"reza.naderi@example.local","phone":"09121234507","city":"تهران","segment":"Regular","createdAt":"1405/03/11"},
+  {"id":"C-1008","fullName":"نازنین حسینی","email":"nazanin.hosseini@example.local","phone":"09121234508","city":"رشت","segment":"New","createdAt":"1405/05/04"},
+  {"id":"C-1009","fullName":"محمد مرادی","email":"mohammad.moradi@example.local","phone":"09121234509","city":"قم","segment":"VIP","createdAt":"1405/01/22"},
+  {"id":"C-1010","fullName":"الهام شریفی","email":"elham.sharifi@example.local","phone":"09121234510","city":"اهواز","segment":"Lost","createdAt":"1404/11/08"}
+]

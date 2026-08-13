@@ -1,0 +1,8 @@
+[
+  { "id": "P-1001", "name": "گوشی Nova X12", "category": "کالای دیجیتال", "unitsSold": 1248, "revenue": 2310000000, "growth": 24.8, "stock": 184, "status": "active" },
+  { "id": "P-1002", "name": "هدفون AirBeat Pro", "category": "کالای دیجیتال", "unitsSold": 986, "revenue": 1280000000, "growth": 18.2, "stock": 92, "status": "active" },
+  { "id": "P-1003", "name": "قهوه‌ساز Smart Brew", "category": "خانه و آشپزخانه", "unitsSold": 764, "revenue": 940000000, "growth": 12.4, "stock": 67, "status": "active" },
+  { "id": "P-1004", "name": "کتانی Urban Flex", "category": "مد و پوشاک", "unitsSold": 712, "revenue": 716000000, "growth": -3.6, "stock": 41, "status": "low_stock" },
+  { "id": "P-1005", "name": "ساعت Pulse Fit", "category": "کالای دیجیتال", "unitsSold": 688, "revenue": 682000000, "growth": 15.9, "stock": 109, "status": "active" },
+  { "id": "P-1006", "name": "سرم Glow C", "category": "زیبایی و سلامت", "unitsSold": 621, "revenue": 408000000, "growth": 8.1, "stock": 56, "status": "active" }
+]

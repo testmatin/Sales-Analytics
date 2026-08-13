@@ -1,0 +1,56 @@
+{
+  "profile": {
+    "name": "آرمان رضایی",
+    "role": "مدیر فروش",
+    "email": "arman@nexa.local",
+    "phone": "۰۹۱۲ ۱۲۳ ۴۵۶۷",
+    "initials": "AR"
+  },
+  "notifications": [
+    {
+      "id": 1,
+      "type": "success",
+      "title": "هدف فروش ماهانه رد شد",
+      "message": "فروش این ماه از ۱۲ میلیارد تومان عبور کرد.",
+      "time": "۸ دقیقه پیش",
+      "read": false,
+      "route": "/"
+    },
+    {
+      "id": 2,
+      "type": "warning",
+      "title": "موجودی محصول کم است",
+      "message": "موجودی کتانی Urban Flex به سطح هشدار رسیده است.",
+      "time": "۲۷ دقیقه پیش",
+      "read": false,
+      "route": "/products"
+    },
+    {
+      "id": 3,
+      "type": "info",
+      "title": "گزارش جدید آماده است",
+      "message": "گزارش عملکرد فروش ماهانه آماده بررسی است.",
+      "time": "۱ ساعت پیش",
+      "read": false,
+      "route": "/reports"
+    },
+    {
+      "id": 4,
+      "type": "trend",
+      "title": "رشد کانال اپلیکیشن",
+      "message": "درآمد اپلیکیشن در بازه اخیر ۱۴٪ رشد کرده است.",
+      "time": "۳ ساعت پیش",
+      "read": true,
+      "route": "/analytics/sales"
+    },
+    {
+      "id": 5,
+      "type": "info",
+      "title": "ورود جدید به سامانه",
+      "message": "ورود موفق از مرورگر Chrome ثبت شد.",
+      "time": "دیروز",
+      "read": true,
+      "route": "/profile"
+    }
+  ]
+}
