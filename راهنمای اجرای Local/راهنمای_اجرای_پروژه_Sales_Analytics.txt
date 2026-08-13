@@ -1,0 +1,558 @@
+راهنمای اجرای پروژه
+Sales Analytics Platform
+React + FastAPI + PostgreSQL + Authentication
+============================================================
+
+ساختار کلی پروژه:
+sales-analytics-postgres-auth/
+│
+├── backend/
+├── frontend/
+├── docker-compose.yml
+└── README.md
+
+
+============================================================
+1) پیش‌نیازها
+============================================================
+
+قبل از اجرا این موارد نصب باشند:
+
+1. Python 3.12 یا بالاتر
+2. Node.js + npm
+3. PostgreSQL
+4. Git (اختیاری)
+5. Docker Desktop (اختیاری - برای روش Docker)
+
+
+============================================================
+2) اجرای Backend به صورت دستی
+============================================================
+
+ابتدا CMD یا PowerShell را باز کنید و وارد پوشه backend شوید:
+
+cd backend
+
+
+------------------------------------------------------------
+2-1) ساخت محیط مجازی Python
+------------------------------------------------------------
+
+python -m venv .venv
+
+
+فعال‌سازی محیط مجازی در CMD ویندوز:
+
+.venv\Scripts\activate
+
+
+فعال‌سازی در PowerShell:
+
+.\.venv\Scripts\Activate.ps1
+
+
+اگر PowerShell اجازه اجرا نداد، CMD را استفاده کنید.
+
+
+------------------------------------------------------------
+2-2) نصب پکیج‌های Backend
+------------------------------------------------------------
+
+python -m pip install --upgrade pip
+
+python -m pip install -r requirements.txt
+
+
+نکته:
+اگر دستور uvicorn مستقیم شناخته نشد، مشکلی نیست.
+همیشه می‌توانید از این فرم استفاده کنید:
+
+python -m uvicorn app.main:app --reload
+
+
+============================================================
+3) تنظیم فایل Environment بک‌اند
+============================================================
+
+داخل پوشه backend فایل:
+
+.env.example
+
+را کپی کرده و نام نسخه جدید را به:
+
+.env
+
+تغییر دهید.
+
+
+در CMD ویندوز:
+
+copy .env.example .env
+
+
+نمونه تنظیمات:
+
+APP_NAME=Sales Analytics API
+DEBUG=true
+
+DATABASE_URL=postgresql+psycopg://postgres:postgres@localhost:5432/sales_analytics
+
+SECRET_KEY=CHANGE_THIS_SECRET_TO_A_LONG_RANDOM_VALUE
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+FRONTEND_URL=http://localhost:5173
+
+
+اگر رمز PostgreSQL شما postgres نیست،
+در DATABASE_URL رمز واقعی خودتان را قرار دهید.
+
+
+============================================================
+4) ساخت دیتابیس PostgreSQL
+============================================================
+
+روش اول - با فایل آماده پروژه:
+
+psql -U postgres -d postgres -f database/create_database.sql
+
+
+اگر دستور psql در PATH نیست، می‌توانید دیتابیس را با pgAdmin بسازید.
+
+نام دیتابیس:
+
+sales_analytics
+
+
+روش دستی داخل psql:
+
+psql -U postgres
+
+سپس:
+
+CREATE DATABASE sales_analytics;
+
+و خروج:
+
+\q
+
+
+============================================================
+5) ساخت جدول‌ها با Alembic
+============================================================
+
+حتماً قبل از Seed کردن دیتا این دستور اجرا شود:
+
+python -m alembic upgrade head
+
+
+برای بررسی Migration فعلی:
+
+python -m alembic current
+
+
+برای مشاهده تاریخچه Migrationها:
+
+python -m alembic history
+
+
+نکته مهم:
+اگر خطایی مثل زیر دیدید:
+
+relation "refresh_tokens" does not exist
+
+یعنی قبل از Seed کردن، Alembic اجرا نشده است.
+
+ابتدا:
+
+python -m alembic upgrade head
+
+و سپس Seed را اجرا کنید.
+
+
+============================================================
+6) انتقال Fake Data به PostgreSQL
+============================================================
+
+بعد از ساخته شدن جدول‌ها:
+
+python scripts\migrate_json_to_postgres.py --reset
+
+
+گزینه --reset:
+داده‌های Seed قبلی را پاک می‌کند و دوباره اطلاعات نمونه را وارد می‌کند.
+
+برای دفعات بعد که نمی‌خواهید Reset شود، در صورت پشتیبانی اسکریپت می‌توانید بدون --reset اجرا کنید:
+
+python scripts\migrate_json_to_postgres.py
+
+
+============================================================
+7) اجرای FastAPI
+============================================================
+
+داخل پوشه backend:
+
+python -m uvicorn app.main:app --reload
+
+
+Backend:
+
+http://127.0.0.1:8000
+
+
+Swagger:
+
+http://127.0.0.1:8000/docs
+
+
+Health Check:
+
+http://127.0.0.1:8000/health
+
+
+API Base URL:
+
+http://127.0.0.1:8000/api/v1
+
+
+توجه:
+اگر آدرس زیر 404 داد:
+
+http://127.0.0.1:8000/
+
+طبیعی است، چون Route اصلی / ممکن است تعریف نشده باشد.
+برای تست از /docs یا /health استفاده کنید.
+
+
+============================================================
+8) حساب Admin آزمایشی
+============================================================
+
+پس از اجرای Seed Data:
+
+Email:
+admin@nexa.example.com
+
+Password:
+Admin123!
+
+
+هشدار:
+برای Production حتماً رمز عبور و SECRET_KEY تغییر داده شوند.
+
+
+============================================================
+9) اجرای Frontend
+============================================================
+
+یک Terminal جدید باز کنید.
+
+از ریشه پروژه وارد frontend شوید:
+
+cd frontend
+
+
+نصب پکیج‌ها:
+
+npm install
+
+
+فایل Environment فرانت را بسازید:
+
+copy .env.example .env
+
+
+مطمئن شوید داخل .env این مقدار وجود دارد:
+
+VITE_API_URL=http://localhost:8000/api/v1
+
+
+سپس:
+
+npm run dev
+
+
+Frontend:
+
+http://localhost:5173
+
+
+============================================================
+10) ترتیب صحیح اجرای پروژه
+============================================================
+
+ترتیب کلی در اولین اجرا:
+
+1. PostgreSQL را اجرا کنید.
+2. وارد backend شوید.
+3. محیط مجازی را فعال کنید.
+4. requirements را نصب کنید.
+5. فایل .env را تنظیم کنید.
+6. دیتابیس sales_analytics را بسازید.
+7. Migration را اجرا کنید:
+
+python -m alembic upgrade head
+
+8. Seed Data را اجرا کنید:
+
+python scripts\migrate_json_to_postgres.py --reset
+
+9. Backend را اجرا کنید:
+
+python -m uvicorn app.main:app --reload
+
+10. Terminal جدید باز کنید.
+11. وارد frontend شوید.
+12. npm install را اجرا کنید.
+13. فایل .env فرانت را تنظیم کنید.
+14. Frontend را اجرا کنید:
+
+npm run dev
+
+
+============================================================
+11) اجرای روزانه بعد از نصب اولیه
+============================================================
+
+Backend:
+
+cd backend
+.venv\Scripts\activate
+python -m uvicorn app.main:app --reload
+
+
+Frontend در Terminal دوم:
+
+cd frontend
+npm run dev
+
+
+در اجرای روزانه نیازی نیست هر بار:
+- pip install
+- npm install
+- Migration
+- Seed
+
+را اجرا کنید، مگر اینکه پکیج، Schema یا Data تغییر کرده باشد.
+
+
+============================================================
+12) در صورت تغییر مدل‌های دیتابیس
+============================================================
+
+بعد از تغییر SQLAlchemy Modelها:
+
+python -m alembic revision --autogenerate -m "describe change"
+
+سپس:
+
+python -m alembic upgrade head
+
+
+============================================================
+13) تست Backend
+============================================================
+
+داخل backend:
+
+python -m pytest
+
+
+یا برای خروجی بیشتر:
+
+python -m pytest -v
+
+
+============================================================
+14) اجرای پروژه با Docker
+============================================================
+
+اگر Docker Desktop نصب است، از ریشه پروژه:
+
+docker compose up --build
+
+
+برای اجرای مجدد:
+
+docker compose up
+
+
+برای توقف:
+
+docker compose down
+
+
+برای توقف و حذف Volume دیتابیس:
+
+docker compose down -v
+
+
+هشدار:
+دستور بالا دیتای PostgreSQL داخل Docker را نیز پاک می‌کند.
+
+
+============================================================
+15) تست اتصال PostgreSQL
+============================================================
+
+در pgAdmin یا psql وارد دیتابیس شوید:
+
+psql -U postgres -d sales_analytics
+
+
+نمایش جدول‌ها:
+
+\dt
+
+
+برای مشاهده کاربران:
+
+SELECT id, email, role FROM users;
+
+
+برای مشاهده محصولات:
+
+SELECT * FROM products LIMIT 10;
+
+
+برای مشاهده سفارش‌ها:
+
+SELECT * FROM orders LIMIT 10;
+
+
+برای خروج:
+
+\q
+
+
+============================================================
+16) مشکلات متداول
+============================================================
+
+مشکل:
+'uvicorn' is not recognized
+
+راه حل:
+
+python -m uvicorn app.main:app --reload
+
+
+------------------------------------------------------------
+
+مشکل:
+'alembic' is not recognized
+
+راه حل:
+
+python -m alembic upgrade head
+
+
+------------------------------------------------------------
+
+مشکل:
+relation "refresh_tokens" does not exist
+
+راه حل:
+
+python -m alembic upgrade head
+
+سپس:
+
+python scripts\migrate_json_to_postgres.py --reset
+
+
+------------------------------------------------------------
+
+مشکل:
+connection refused / PostgreSQL connection error
+
+بررسی کنید:
+- PostgreSQL روشن باشد.
+- Port روی 5432 باشد.
+- DATABASE_URL صحیح باشد.
+- Username و Password صحیح باشند.
+- دیتابیس sales_analytics ساخته شده باشد.
+
+
+------------------------------------------------------------
+
+مشکل:
+CORS Error در React
+
+بررسی کنید در backend/.env:
+
+FRONTEND_URL=http://localhost:5173
+
+
+و Backend را Restart کنید.
+
+
+------------------------------------------------------------
+
+مشکل:
+Frontend به API وصل نمی‌شود
+
+بررسی کنید frontend/.env:
+
+VITE_API_URL=http://localhost:8000/api/v1
+
+
+سپس Vite را Restart کنید:
+
+npm run dev -- --force
+
+
+============================================================
+17) آدرس‌های مهم پروژه
+============================================================
+
+Frontend:
+http://localhost:5173
+
+Backend:
+http://127.0.0.1:8000
+
+Swagger:
+http://127.0.0.1:8000/docs
+
+Health:
+http://127.0.0.1:8000/health
+
+API:
+http://127.0.0.1:8000/api/v1
+
+PostgreSQL:
+localhost:5432
+
+Database:
+sales_analytics
+
+
+============================================================
+18) خلاصه دستورات اولین اجرا
+============================================================
+
+BACKEND:
+
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements.txt
+copy .env.example .env
+python -m alembic upgrade head
+python scripts\migrate_json_to_postgres.py --reset
+python -m uvicorn app.main:app --reload
+
+
+FRONTEND:
+
+cd frontend
+npm install
+copy .env.example .env
+npm run dev
+
+
+============================================================
+پایان راهنمای اجرا
+============================================================

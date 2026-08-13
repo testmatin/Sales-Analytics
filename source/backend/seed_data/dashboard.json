@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "totalRevenue": 12840000000,
+    "totalOrders": 8240,
+    "netProfit": 3720000000,
+    "totalCustomers": 4912,
+    "averageOrderValue": 1558252,
+    "conversionRate": 4.86,
+    "revenueGrowth": 18.4,
+    "ordersGrowth": 12.7,
+    "profitGrowth": 21.2,
+    "customersGrowth": 8.9,
+    "aovGrowth": 5.3,
+    "conversionGrowth": 0.7
+  },
+  "salesTrend": [
+    { "label": "۱ مرداد", "revenue": 312, "profit": 88, "orders": 198 },
+    { "label": "۴ مرداد", "revenue": 374, "profit": 102, "orders": 224 },
+    { "label": "۷ مرداد", "revenue": 352, "profit": 96, "orders": 216 },
+    { "label": "۱۰ مرداد", "revenue": 438, "profit": 128, "orders": 272 },
+    { "label": "۱۳ مرداد", "revenue": 471, "profit": 139, "orders": 291 },
+    { "label": "۱۶ مرداد", "revenue": 449, "profit": 131, "orders": 280 },
+    { "label": "۱۹ مرداد", "revenue": 518, "profit": 153, "orders": 322 },
+    { "label": "۲۲ مرداد", "revenue": 563, "profit": 169, "orders": 346 },
+    { "label": "۲۵ مرداد", "revenue": 541, "profit": 158, "orders": 337 },
+    { "label": "۲۸ مرداد", "revenue": 612, "profit": 184, "orders": 374 }
+  ],
+  "categorySales": [
+    { "name": "کالای دیجیتال", "value": 36 },
+    { "name": "خانه و آشپزخانه", "value": 24 },
+    { "name": "مد و پوشاک", "value": 18 },
+    { "name": "زیبایی و سلامت", "value": 13 },
+    { "name": "سایر", "value": 9 }
+  ],
+  "channelSales": [
+    { "name": "وب‌سایت", "revenue": 4820 },
+    { "name": "اپلیکیشن", "revenue": 3650 },
+    { "name": "مارکت‌پلیس", "revenue": 2440 },
+    { "name": "فروش حضوری", "revenue": 1930 }
+  ],
+  "regions": [
+    { "name": "تهران", "revenue": 3200000000, "orders": 2210, "share": 78 },
+    { "name": "اصفهان", "revenue": 1920000000, "orders": 1284, "share": 57 },
+    { "name": "خراسان رضوی", "revenue": 1610000000, "orders": 1042, "share": 49 },
+    { "name": "فارس", "revenue": 1280000000, "orders": 814, "share": 39 },
+    { "name": "آذربایجان شرقی", "revenue": 960000000, "orders": 602, "share": 31 }
+  ],
+  "activity": [
+    { "type": "success", "title": "هدف فروش ماهانه به ۸۶٪ رسید", "time": "۱۲ دقیقه پیش" },
+    { "type": "trend", "title": "کالای دیجیتال ۲۱٪ رشد هفتگی داشته است", "time": "۳۵ دقیقه پیش" },
+    { "type": "warning", "title": "فروش پوشاک برای سومین هفته کاهش یافته است", "time": "۱ ساعت پیش" },
+    { "type": "info", "title": "گزارش مدیریتی جدید آماده بررسی است", "time": "۲ ساعت پیش" }
+  ]
+}

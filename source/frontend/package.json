@@ -1,0 +1,29 @@
+{
+  "name": "sales-analytics-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "chart.js": "4.5.1",
+    "lucide-react": "0.468.0",
+    "react": "19.2.0",
+    "react-chartjs-2": "5.3.0",
+    "react-dom": "19.2.0",
+    "react-router-dom": "7.9.4",
+    "three": "0.180.0",
+    "axios": "1.7.9"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@types/three": "0.180.0",
+    "@vitejs/plugin-react": "5.0.4",
+    "typescript": "5.9.3",
+    "vite": "7.1.12"
+  }
+}

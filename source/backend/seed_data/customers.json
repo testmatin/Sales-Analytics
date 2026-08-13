@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "total": 4912,
+    "new": 486,
+    "returning": 2874,
+    "retentionRate": 68.4,
+    "churnRate": 7.8,
+    "lifetimeValue": 8420000
+  },
+  "segments": [
+    { "name": "VIP", "customers": 286, "averageSpend": 24800000, "revenueShare": 31, "growth": 14.2 },
+    { "name": "High Value", "customers": 742, "averageSpend": 13400000, "revenueShare": 28, "growth": 10.6 },
+    { "name": "Regular", "customers": 2210, "averageSpend": 4900000, "revenueShare": 25, "growth": 5.1 },
+    { "name": "New", "customers": 486, "averageSpend": 2200000, "revenueShare": 9, "growth": 18.7 },
+    { "name": "At Risk", "customers": 312, "averageSpend": 3600000, "revenueShare": 5, "growth": -8.4 },
+    { "name": "Lost", "customers": 876, "averageSpend": 1900000, "revenueShare": 2, "growth": -16.1 }
+  ]
+}

@@ -1,0 +1,6 @@
+[
+  {"id":"sales","title":"گزارش فروش ماهانه","description":"خلاصه فروش، سود، سفارش و مقایسه با دوره قبل","formats":["csv","json"]},
+  {"id":"products","title":"گزارش عملکرد محصولات","description":"رتبه‌بندی محصولات، رشد و وضعیت موجودی","formats":["csv","json"]},
+  {"id":"customers","title":"گزارش مشتریان","description":"بخش‌بندی، نگهداشت و ارزش طول عمر مشتری","formats":["csv","json"]},
+  {"id":"orders","title":"گزارش سفارش‌ها","description":"فهرست سفارش‌ها، مبالغ، شهر و وضعیت","formats":["csv","json"]}
+]
