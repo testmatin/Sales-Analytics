@@ -2,6 +2,10 @@
 node_modules/
 **/node_modules/
 
+# Expo
+.expo/
+web-build/
+
 # Environment
 .env
 .env.*
@@ -19,3 +23,6 @@ build/
 # IDE
 .vscode/
 .idea/
+
+# OS
+.DS_Store

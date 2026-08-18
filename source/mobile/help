@@ -1,0 +1,78 @@
+گرفتن خروجی 
+
+
+میخوام خروجی بگیرم ازش چیکار باید بکنم
+
+
+اگر منظورت اینه که از پروژه Expoت یک فایل APK قابل نصب روی گوشی بگیری، راحت‌ترین راه برای پروژه تو EAS Build هست. Expo هم برای نصب مستقیم روی گوشی/شبیه‌ساز، خروجی APK را پشتیبانی می‌کند.
+
+داخل پوشه پروژه‌ات، مثلاً:
+
+C:\Users\HP\Desktop\SalesApp
+
+اول این‌ها را بزن:
+
+npm install -g eas-cli
+
+بعد:
+
+eas login
+
+با اکانت Expo وارد شو. سپس:
+
+eas build:configure
+
+اگر فایل eas.json ساخته شد، برای اینکه APK بگیری، این محتوا را داشته باشد:
+
+{
+  "build": {
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {}
+  }
+}
+
+حالا بزن:
+
+eas build -p android --profile preview
+
+ممکن است دفعه اول درباره Android package سؤال کند. مثلاً می‌توانی داشته باشی:
+
+com.salesapp.mobile
+
+اگر درباره Keystore پرسید، اجازه بده خود Expo آن را بسازد و مدیریت کند. EAS خروجی را با Keystore امضا می‌کند.
+
+بعد از تمام شدن Build، یک APK دریافت می‌کنی که مستقیم روی گوشی Android نصب می‌شود.
+
+اگر برای Google Play می‌خواهی
+
+برای Google Play به‌جای APK معمولاً باید AAB بسازی. پروفایل production به‌صورت پیش‌فرض AAB می‌سازد.
+
+دستورش:
+
+eas build -p android --profile production
+
+پس برای کاری که الان می‌خواهی:
+
+eas build -p android --profile preview
+
+APK برای نصب روی گوشی
+
+و:
+
+eas build -p android --profile production
+
+AAB برای انتشار در Google Play
+
+یک نکته مهم هم هست: چون الان عکسی که فرستادی هنوز صفحه Welcome to Expo را نشان می‌دهد، قبل از Build حتماً اول مطمئن شو نسخه واقعی SalesApp در src/app/index.tsx اجرا می‌شود؛ وگرنه APK هم همان صفحه Welcome را خواهد داشت.
+
+
+
+
+
+اجرای پروژه 
+npx expo start -c

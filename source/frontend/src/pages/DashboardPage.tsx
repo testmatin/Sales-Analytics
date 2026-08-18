@@ -44,7 +44,7 @@ export default function DashboardPage() {
         <Suspense fallback={<VisualFallback label="در حال بارگذاری نمای سه‌بعدی..."/>}><DataCity3D values={trend} /></Suspense>
         <div className="floating-metric metric-a"><small>رشد فروش</small><b>+{s.revenueGrowth}٪</b></div>
         <div className="floating-metric metric-b"><small>سفارش‌ها</small><b>{formatNumber(s.totalOrders)}</b></div>
-        <div className="scene-footer"><span>FASTAPI • REST API</span><b>Backend متصل است</b></div>
+        {/* <div className="scene-footer"><span>FASTAPI • REST API</span><b>Backend متصل است</b></div> */}
       </div>
     </div>
 
