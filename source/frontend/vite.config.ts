@@ -2,12 +2,26 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+
+  base: "./",
+
   plugins: [react()],
+
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react', 'chart.js', 'react-chartjs-2', 'three'],
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'lucide-react',
+      'chart.js',
+      'react-chartjs-2',
+      'three'
+    ],
   },
+
   server: {
     port: 5173,
+
     warmup: {
       clientFiles: [
         './src/main.tsx',
@@ -17,4 +31,5 @@ export default defineConfig({
       ],
     },
   },
+
 });
