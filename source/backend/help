@@ -2,3 +2,11 @@ python -m uvicorn app.main:app --reload
 
 
 py -3.13 -m uvicorn app.main:app --reload
+
+
+
+
+
+python -m alembic upgrade head
+
+python scripts/migrate_json_to_postgres.py --reset
