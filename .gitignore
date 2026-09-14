@@ -26,3 +26,10 @@ build/
 
 # OS
 .DS_Store
+
+# Electron build
+release/
+out/
+
+# Logs
+*.log

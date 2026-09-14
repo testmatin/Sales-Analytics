@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobin Aji — Computer Engineer & Creative Front-End</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800;900&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-outer" id="curOuter"></div>
+<div class="cursor-inner" id="curInner"></div>
+<div class="cursor-label" id="curLabel"></div>
+
+<!-- BACKGROUND -->
+<canvas id="webgl"></canvas>
+<div class="grain"></div>
+<div class="scanlines"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <span class="dot"></span>
+    MOBIN.AJI
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home" data-nav>خانه</a></li>
+    <li><a href="#about" data-nav>درباره</a></li>
+    <li><a href="#work" data-nav>نمونه کار</a></li>
+    <li><a href="#contact" data-nav>تماس</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta" data-cursor="HIRE">
+    <span>START A PROJECT</span>
+    <span>→</span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <div class="hero-tag reveal">COMPUTER ENGINEER · CREATIVE FRONT-END · TEHRAN</div>
+      <h1>
+        <span class="line"><span>می‌سازم</span></span>
+        <span class="line"><span>تجربه‌های <em class="shimmer">دیجیتال</em></span></span>
+        <span class="line"><span>فراموش‌نشدنی.</span></span>
+      </h1>
+      <p class="hero-sub reveal">
+        سلام، من <strong>مبین ایجی</strong> هستم؛ مهندس کامپیوتر و توسعه‌دهنده فرانت‌اند با تمرکز روی <strong>React.js</strong> و 
+        معماری‌های مدرن وب. از طراحی رابط‌های کاربری تا استقرار روی سرور، 
+        چرخه‌ی کامل ساخت محصول رو با <strong>FastAPI</strong>، <strong>NestJS</strong> و <strong>Docker</strong> پوشش می‌دم.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#work" class="btn btn-primary" data-cursor="VIEW">
+          <span>مشاهده نمونه کارها</span>
+          <span>↘</span>
+        </a>
+        <a href="#contact" class="btn btn-ghost" data-cursor="TALK">
+          <span>گفت‌وگو با من</span>
+        </a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat"><h4>+۳</h4><p>سال تجربه</p></div>
+        <div class="stat"><h4>+۲۵</h4><p>پروژه موفق</p></div>
+        <div class="stat"><h4>+۱۰</h4><p>تکنولوژی</p></div>
+      </div>
+    </div>
+
+    <div class="hero-3d-wrap">
+      <div class="orb"></div>
+      <div class="id-card" id="idCard">
+        <div class="card-face">
+          <div class="id-avatar">
+            <img src="./images/myimage.jfif" alt="مبین ایجی" onerror="this.style.display='none'; this.parentElement.innerHTML='M';">
+          </div>
+          <h3>مبین ایجی</h3>
+          <div class="role">COMPUTER ENGINEER</div>
+          <div class="id-divider"></div>
+          <div class="id-skills">
+            <span>React.js</span>
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>FastAPI</span>
+            <span>Docker</span>
+          </div>
+          <div class="id-status">
+            <div class="live">AVAILABLE</div>
+            <div>EST. 1381</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee">
+    <span>REACT</span><span>NEXT.JS</span><span>TYPESCRIPT</span><span>FASTAPI</span>
+    <span>NESTJS</span><span>DOCKER</span><span>LINUX</span><span>ELECTRON</span>
+    <span>REACT NATIVE</span><span>UI/UX</span>
+    <span>REACT</span><span>NEXT.JS</span><span>TYPESCRIPT</span><span>FASTAPI</span>
+    <span>NESTJS</span><span>DOCKER</span><span>LINUX</span><span>ELECTRON</span>
+    <span>REACT NATIVE</span><span>UI/UX</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="content" id="about">
+  <div class="section-head reveal">
+    <div class="eyebrow">01 — ABOUT</div>
+    <h2>مهندسی که به <em>جزئیات</em> دقت داره</h2>
+  </div>
+  <div class="about-grid">
+    <div class="terminal reveal">
+      <div class="term-head">
+        <span class="term-dot r"></span>
+        <span class="term-dot y"></span>
+        <span class="term-dot g"></span>
+        <span class="term-title">~/mobin/profile.ts</span>
+      </div>
+      <div class="term-body">
+<span class="ln">1</span><span class="t-com">// Computer Engineer & Full-Stack Dev</span><br>
+<span class="ln">2</span><span class="t-key">interface</span> <span class="t-fn">Developer</span> <span class="t-brace">{</span><br>
+<span class="ln">3</span>&nbsp;&nbsp;<span class="t-var">name</span><span class="t-brace">:</span> <span class="t-str">'مبین ایجی'</span><span class="t-brace">;</span><br>
+<span class="ln">4</span>&nbsp;&nbsp;<span class="t-var">role</span><span class="t-brace">:</span> <span class="t-str">'Computer Engineer'</span><span class="t-brace">;</span><br>
+<span class="ln">5</span>&nbsp;&nbsp;<span class="t-var">focus</span><span class="t-brace">:</span> <span class="t-str">'React.js'</span><span class="t-brace">;</span><br>
+<span class="ln">6</span>&nbsp;&nbsp;<span class="t-var">backend</span><span class="t-brace">:</span> <span class="t-brace">[</span><span class="t-str">'FastAPI'</span><span class="t-brace">,</span> <span class="t-str">'NestJS'</span><span class="t-brace">];</span><br>
+<span class="ln">7</span>&nbsp;&nbsp;<span class="t-var">infra</span><span class="t-brace">:</span> <span class="t-brace">[</span><span class="t-str">'Docker'</span><span class="t-brace">,</span> <span class="t-str">'Linux'</span><span class="t-brace">];</span><br>
+<span class="ln">8</span>&nbsp;&nbsp;<span class="t-var">desktop</span><span class="t-brace">:</span> <span class="t-str">'Electron'</span><span class="t-brace">;</span><br>
+<span class="ln">9</span>&nbsp;&nbsp;<span class="t-var">mobile</span><span class="t-brace">:</span> <span class="t-str">'React Native'</span><span class="t-brace">;</span><br>
+<span class="ln">10</span>&nbsp;&nbsp;<span class="t-var">location</span><span class="t-brace">:</span> <span class="t-str">'Tehran, IR'</span><span class="t-brace">;</span><br>
+<span class="ln">11</span>&nbsp;&nbsp;<span class="t-var">coffee</span><span class="t-brace">:</span> <span class="t-num">Infinity</span><span class="t-brace">;</span><br>
+<span class="ln">12</span><span class="t-brace">}</span><br>
+<span class="ln">13</span><br>
+<span class="ln">14</span><span class="t-key">export default</span> <span class="t-fn">mobin</span><span class="t-brace">;</span>
+      </div>
+    </div>
+
+    <div class="about-text reveal">
+      <h3>از <em>ایده</em> تا محصول نهایی، همراهتم.</h3>
+      <p>
+        مهندس کامپیوتر هستم و بیشتر در حوزه توسعه Front-End فعالیت کرده‌ام. تمرکز اصلی من روی React.js است. 
+        در کنار توسعه فرانت‌اند، تجربه توسعه Back-End با Python و فریم‌ورک FastAPI و 
+        همچنین NestJS را نیز دارم.
+      </p>
+      <p>
+        در زمینه زیرساخت و استقرار، با Docker و Linux کار کرده‌ام. علاوه بر این، 
+        تجربه توسعه اپلیکیشن‌های دسکتاپ با Electron و اپلیکیشن‌های موبایل با React Native 
+        رو هم دارم — یعنی یه اکوسیستم کامل از وب تا موبایل و دسکتاپ.
+      </p>
+      <div class="tech-grid">
+        <div class="tech-chip"><div class="ico">⚛️</div><div class="lbl">REACT</div></div>
+        <div class="tech-chip"><div class="ico">▲</div><div class="lbl">NEXT.JS</div></div>
+        <div class="tech-chip"><div class="ico">🔷</div><div class="lbl">TYPESCRIPT</div></div>
+        <div class="tech-chip"><div class="ico">🐍</div><div class="lbl">PYTHON</div></div>
+        <div class="tech-chip"><div class="ico">⚡</div><div class="lbl">FASTAPI</div></div>
+        <div class="tech-chip"><div class="ico">🦁</div><div class="lbl">NESTJS</div></div>
+        <div class="tech-chip"><div class="ico">🐳</div><div class="lbl">DOCKER</div></div>
+        <div class="tech-chip"><div class="ico">🐧</div><div class="lbl">LINUX</div></div>
+        <div class="tech-chip"><div class="ico">💻</div><div class="lbl">ELECTRON</div></div>
+        <div class="tech-chip"><div class="ico">📱</div><div class="lbl">RN</div></div>
+        <div class="tech-chip"><div class="ico">🎨</div><div class="lbl">UI/UX</div></div>
+        <div class="tech-chip"><div class="ico">🔧</div><div class="lbl">GIT</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="content" id="work">
+  <div class="section-head reveal">
+    <div class="eyebrow">02 — SELECTED WORK</div>
+    <h2>پروژه‌هایی که با <em>جزئیات</em> ساختم</h2>
+  </div>
+  <div class="projects">
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all" data-cursor="ALL">همه</button>
+      <button class="filter-btn" data-filter="web" data-cursor="WEB">سایت</button>
+      <button class="filter-btn" data-filter="mobile" data-cursor="MOBILE">موبایل</button>
+      <button class="filter-btn" data-filter="desktop" data-cursor="DESKTOP">ویندوز</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- پروژه ۱ - وب -->
+      <article class="project p1 reveal" data-cat="web" data-cursor="OPEN">
+        <div class="project-visual">
+          <div class="glow"></div>
+          <img src="./images/web.png" alt="سامانه تحلیل فروش" class="project-img">
+          <div class="num">01</div>
+          <div class="project-badge">WEB</div>
+        </div>
+        <div class="project-body">
+          <div class="meta"><span class="yr">2024</span><span>WEBSITE</span></div>
+          <h4>سامانه تحلیل و هوشمندسازی داده‌های فروش</h4>
+          <p>پلتفرم تجارت الکترونیک با معماری SSR، پنل ادمین پیشرفته، درگاه پرداخت امن و سیستم مدیریت انبار. طراحی شده برای عملکرد بالا و تجربه کاربری بی‌نقص.</p>
+          <div class="project-tags">
+            <span>Next.js</span><span>TypeScript</span><span>Stripe</span><span>PostgreSQL</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/testmatin/Sales-Analytics/tree/main/source" target="_blank" rel="noopener" class="btn-card btn-github" data-cursor="GITHUB">
+              <span>🐙</span>
+              <span>گیت‌هاب</span>
+            </a>
+            <a href="https://sales-analytic-frontend.vercel.app/" class="btn-card btn-view" data-cursor="VIEW">
+              <span>مشاهده پروژه</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- پروژه ۲ - موبایل -->
+      <article class="project p2 reveal" data-cat="mobile" data-cursor="OPEN">
+        <div class="project-visual">
+          <div class="glow"></div>
+          <img src="./images/windows.png" alt="اپلیکیشن چت" class="project-img">
+          <div class="num">02</div>
+          <div class="project-badge">MOBILE</div>
+        </div>
+        <div class="project-body">
+          <div class="meta"><span class="yr">2023</span><span>MOBILE APP</span></div>
+          <h4>نسخه ویندوز پروژه</h4>
+          <p>اپلیکیشن چت cross-platform با پشتیبانی از فایل، voice message، نوتیفیکیشن push و همگام‌سازی آنی. ساخته‌شده با معماری مقیاس‌پذیر.</p>
+          <div class="project-tags">
+            <span>React Native</span><span>NestJS</span><span>Socket.io</span><span>MongoDB</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/testmatin/Sales-Analytics/tree/main/source/frontend" target="_blank" rel="noopener" class="btn-card btn-github" data-cursor="GITHUB">
+              <span>🐙</span>
+              <span>گیت‌هاب</span>
+            </a>
+            <a href="#" class="btn-card btn-view" data-cursor="GET">
+              <span>دریافت پروژه</span>
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- پروژه ۳ - دسکتاپ -->
+      <article class="project p3 reveal" data-cat="desktop" data-cursor="OPEN">
+        <div class="project-visual">
+          <div class="glow"></div>
+          <img src="./images/project-desktop.jpg" alt="اپلیکیشن دسکتاپ" class="project-img">
+          <div class="num">03</div>
+          <div class="project-badge">WINDOWS</div>
+        </div>
+        <div class="project-body">
+          <div class="meta"><span class="yr">2023</span><span>DESKTOP</span></div>
+          <h4>اپلیکیشن پروژه</h4>
+          <p>نرم‌افزار دسکتاپ cross-platform برای مدیریت پروژه با همگام‌سازی ابری، حالت آفلاین کامل و رابط کاربری مدرن. قابل اجرا روی ویندوز و مک.</p>
+          <div class="project-tags">
+            <span>Electron</span><span>React</span><span>SQLite</span><span>TypeScript</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com" target="_blank" rel="noopener" class="btn-card btn-github" data-cursor="GITHUB">
+              <span>🐙</span>
+              <span>گیت‌هاب</span>
+            </a>
+            <a href="#" class="btn-card btn-view" data-cursor="GET">
+              <span>دریافت پروژه</span>
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="content" id="contact">
+  <div class="section-head reveal">
+    <div class="eyebrow">03 — CONTACT</div>
+    <h2>بیا یه چیز <em>خفن</em> بسازیم</h2>
+  </div>
+  <div class="contact-wrap reveal">
+    <h2>پروژه‌ای در ذهن داری؟</h2>
+    <p>
+      اگه دنبال مهندس کامپیوتری هستی که هم به کیفیت کد اهمیت بده، 
+      هم به تجربه کاربری و هم به جزئیات بصری — من آماده‌ی همکاری‌ام.
+    </p>
+    <div class="contact-actions">
+      <a href="mailto:contact@mobinaji.dev" class="btn btn-primary" data-cursor="MAIL">
+        <span>ارسال ایمیل</span>
+        <span>✉</span>
+      </a>
+      <a href="#" class="btn btn-ghost" data-cursor="CV">
+        <span>دانلود رزومه</span>
+        <span>↓</span>
+      </a>
+    </div>
+    <div class="socials">
+      <a href="#" class="social" data-cursor="GITHUB">🐙</a>
+      <a href="#" class="social" data-cursor="LINKEDIN">💼</a>
+      <a href="#" class="social" data-cursor="TWITTER">𝕏</a>
+      <a href="#" class="social" data-cursor="TELEGRAM">✈</a>
+      <a href="#" class="social" data-cursor="DRIBBBLE">🎨</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 1404 / MOBIN.AJI — ALL RIGHTS RESERVED</div>
+  <div>CRAFTED WITH <span class="heart">♥</span> IN TEHRAN</div>
+  <a href="#home" class="up" data-cursor="TOP">BACK TO TOP ↑</a>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+ <script src="./script.js"></script>
+</body>
+</html>

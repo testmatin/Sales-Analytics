@@ -3,3 +3,15 @@ npx cap sync
 
 
 npx cap open android
+
+
+
+
+
+npm run build
+
+
+npm run electron
+
+
+npm run dist

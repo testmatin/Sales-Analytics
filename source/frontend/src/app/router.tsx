@@ -1,6 +1,6 @@
 import { lazy, Suspense, type ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { DashboardLayout } from '../layouts/DashboardLayout';
 import AppErrorPage from '../pages/AppErrorPage';
@@ -33,7 +33,7 @@ function RequireAuth({ children }: { children: ReactNode }) {
 
 const page = (node: ReactNode) => <RouteSuspense>{node}</RouteSuspense>;
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   { path: '/login', element: page(<AuthPage/>), errorElement: <AppErrorPage/> },
   {
     path: '/',

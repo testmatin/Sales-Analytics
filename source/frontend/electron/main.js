@@ -10,18 +10,25 @@ const __dirname = path.dirname(__filename);
 function createWindow() {
 
   const win = new BrowserWindow({
+
     width: 1400,
     height: 900,
 
     webPreferences: {
-      contextIsolation: true
+      contextIsolation: true,
+      nodeIntegration: false
     }
+
   });
 
 
-  win.loadFile(
-    path.join(__dirname, "../dist/index.html")
+  const indexPath = path.join(
+    __dirname,
+    "../dist/index.html"
   );
+
+
+  win.loadFile(indexPath);
 
 }
 
@@ -31,8 +38,13 @@ app.whenReady().then(() => {
 });
 
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
+app.on(
+  "window-all-closed",
+  () => {
+
+    if (process.platform !== "darwin") {
+      app.quit();
+    }
+
   }
-});
+);

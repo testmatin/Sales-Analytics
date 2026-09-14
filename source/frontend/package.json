@@ -3,13 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+
   "main": "electron/main.js",
+
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "electron": "electron ."
+    "electron": "electron .",
+    "dist": "npm run build && electron-builder"
   },
+
   "dependencies": {
     "@capacitor/android": "^8.5.2",
     "@capacitor/cli": "^8.5.2",
@@ -23,6 +27,7 @@
     "react-router-dom": "7.9.4",
     "three": "0.180.0"
   },
+
   "devDependencies": {
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
@@ -32,5 +37,33 @@
     "electron-builder": "^26.15.3",
     "typescript": "5.9.3",
     "vite": "7.1.12"
+  },
+
+  "build": {
+    "appId": "com.sales.analytics",
+    "productName": "Sales Analytics",
+
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+
+    "directories": {
+      "output": "release"
+    },
+
+    "asar": true,
+
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
   }
 }
