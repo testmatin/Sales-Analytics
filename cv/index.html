@@ -26,7 +26,7 @@
     <span class="dot"></span>
     MOBIN.AJI
   </div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#home" data-nav>خانه</a></li>
     <li><a href="#about" data-nav>درباره</a></li>
     <li><a href="#work" data-nav>نمونه کار</a></li>
@@ -36,7 +36,21 @@
     <span>START A PROJECT</span>
     <span>→</span>
   </a>
+  <button class="nav-toggle" id="navToggle" aria-label="منو" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#home" data-nav>خانه</a></li>
+    <li><a href="#about" data-nav>درباره</a></li>
+    <li><a href="#work" data-nav>نمونه کار</a></li>
+    <li><a href="#contact" data-nav>تماس</a></li>
+  </ul>
+  <a href="#contact" class="mobile-cta">START A PROJECT →</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">

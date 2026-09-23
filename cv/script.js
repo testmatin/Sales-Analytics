@@ -33,6 +33,9 @@ document.querySelectorAll('a,button,.tech-chip,.project,.social,[data-cursor]').
 const nav = document.getElementById('nav');
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('[data-nav]');
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
 window.addEventListener('scroll', ()=>{
   nav.classList.toggle('scrolled', window.scrollY > 50);
   let cur = '';
@@ -41,6 +44,24 @@ window.addEventListener('scroll', ()=>{
   });
   navLinks.forEach(l=> l.classList.toggle('active', l.getAttribute('href') === '#'+cur));
 });
+
+/* MOBILE MENU */
+if(navToggle && mobileMenu){
+  navToggle.addEventListener('click', ()=>{
+    const open = mobileMenu.classList.toggle('open');
+    navToggle.classList.toggle('active', open);
+    navToggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      mobileMenu.classList.remove('open');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
 
 /* REVEAL */
 const io = new IntersectionObserver(entries=>{
@@ -79,20 +100,23 @@ filterBtns.forEach(btn=>{
   });
 });
 
-/* 3D CARD TILT */
+/* 3D CARD TILT (desktop only) */
 const card = document.getElementById('idCard');
 const wrap = document.querySelector('.hero-3d-wrap');
-wrap.addEventListener('mousemove', e=>{
-  const r = wrap.getBoundingClientRect();
-  const x = (e.clientX - r.left)/r.width - 0.5;
-  const y = (e.clientY - r.top)/r.height - 0.5;
-  card.style.animation = 'none';
-  card.style.transform = `perspective(1200px) rotateY(${x*30}deg) rotateX(${-y*30}deg) translateZ(40px)`;
-});
-wrap.addEventListener('mouseleave', ()=>{
-  card.style.transform = '';
-  card.style.animation = 'cardFloat 8s ease-in-out infinite';
-});
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+if(wrap && card && !isTouch){
+  wrap.addEventListener('mousemove', e=>{
+    const r = wrap.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - 0.5;
+    const y = (e.clientY - r.top)/r.height - 0.5;
+    card.style.animation = 'none';
+    card.style.transform = `perspective(1200px) rotateY(${x*30}deg) rotateX(${-y*30}deg) translateZ(40px)`;
+  });
+  wrap.addEventListener('mouseleave', ()=>{
+    card.style.transform = '';
+    card.style.animation = 'cardFloat 8s ease-in-out infinite';
+  });
+}
 
 /* THREE.JS */
 (function(){
